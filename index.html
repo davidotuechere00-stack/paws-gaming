@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d18">
+<title>PAWS GAMING | Free Fire Hub</title>
+
+<style>
+:root {
+  --bg: #080d18;
+  --panel: #111b2c;
+  --text: #f5f7ff;
+  --muted: #a7b3c8;
+  --green: #24f0a5;
+  --line: #26364d;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px Arial, sans-serif;
+}
+header {
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.logo { font-weight: 900; font-size: 21px; }
+.logo span, .green { color: var(--green); }
+nav { display: flex; gap: 15px; flex-wrap: wrap; }
+a { color: var(--text); text-decoration: none; }
+nav a { font-size: 13px; }
+.hero {
+  padding: 65px 6% 55px;
+  background: radial-gradient(ellipse at top, #24f0a526, transparent 65%);
+}
+.tag {
+  color: var(--green);
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+h1 {
+  font-size: clamp(38px, 9vw, 68px);
+  line-height: 1.05;
+  margin: 20px 0;
+}
+p { color: var(--muted); line-height: 1.6; }
+.hero p { max-width: 540px; }
+button, input, select {
+  font: inherit;
+  border-radius: 9px;
+  padding: 12px;
+}
+button {
+  background: var(--green);
+  color: #07140f;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover { filter: brightness(.92); }
+.secondary {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+section { padding: 35px 6%; }
+h2 { font-size: 27px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 20px;
+  border-radius: 14px;
+}
+.card h3 { margin-top: 0; }
+.pill {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 30px;
+  color: var(--green);
+  background: #24f0a515;
+  font-size: 12px;
+}
+form {
+  display: grid;
+  gap: 12px;
+  max-width: 480px;
+}
+input, select {
+  width: 100%;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+input::placeholder { color: #8996ad; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td {
+  padding: 13px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+th { color: var(--green); font-size: 13px; }
+.notice { font-size: 13px; }
+footer {
+  border-top: 1px solid var(--line);
+  text-align: center;
+  padding: 25px;
+}
+@media(max-width: 450px) {
+  header { align-items: flex-start; flex-direction: column; }
+  nav { gap: 13px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="logo">PAWS <span>GAMING.</span></div>
+  <nav>
+    <a href="#events">Tournaments</a>
+    <a href="#leaderboard">Leaderboard</a>
+    <a href="#join">Join</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="tag">NIGERIAN GAMING COMMUNITY</div>
+    <h1>DROP IN.<br>RISE UP.<br><span class="green">BE LEGENDARY.</span></h1>
+    <p>
+      Your home for Free Fire news, player rankings,
+      community tournaments and gaming updates.
+    </p>
+    <a href="#events"><button>Explore tournaments ↓</button></a>
+  </div>
+
+  <section id="events">
+    <div class="tag">PLAY TO IMPROVE</div>
+    <h2>Community events</h2>
+    <div class="grid">
+      <article class="card">
+        <span class="pill">COMMUNITY</span>
+        <h3>Solo Showdown</h3>
+        <p>Solo players. One lobby. Bring your best skills.</p>
+        <p><b>Entry:</b> Free community interest list</p>
+        <button onclick="chooseEvent('Solo Showdown')">
+          Register interest
+        </button>
+      </article>
+      <article class="card">
+        <span class="pill">SQUAD</span>
+        <h3>Squad Clash</h3>
+        <p>Find your teammates and prepare for squad battles.</p>
+        <p><b>Entry:</b> Free community interest list</p>
+        <button onclick="chooseEvent('Squad Clash')">
+          Register interest
+        </button>
+      </article>
+      <article class="card">
+        <span class="pill">PRACTICE</span>
+        <h3>Headshot Challenge</h3>
+        <p>Practise your aim, movement and one-tap skills.</p>
+        <p><b>Entry:</b> Free practice challenge</p>
+        <button onclick="chooseEvent('Headshot Challenge')">
+          Register interest
+        </button>
+      </article>
+    </div>
+    <p class="notice">
+      Demo events only. No matches are scheduled yet, and no prizes
+      or rewards are promised.
+    </p>
+  </section>
+
+  <section id="leaderboard">
+    <div class="tag">COMMUNITY RANKINGS</div>
+    <h2>Player leaderboard</h2>
+    <input id="search" placeholder="Search player names..." aria-label="Search players">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Rank</th><th>Player</th><th>Points</th></tr>
+        </thead>
+        <tbody id="players"></tbody>
+      </table>
+    </div>
+    <p class="notice">Sample scores for demonstration, not real match results.</p>
+  </section>
+
+  <section id="join">
+    <div class="tag">JOIN THE COMMUNITY</div>
+    <h2>Register your interest</h2>
+    <p>Submit your player name and preferred game mode.</p>
+    <form id="signup">
+      <input id="name" placeholder="Player nickname" maxlength="24" required>
+      <select id="mode">
+        <option>Solo Showdown</option>
+        <option>Squad Clash</option>
+        <option>Headshot Challenge</option>
+      </select>
+      <button type="submit">Save my interest</button>
+    </form>
+    <p id="message" role="status" aria-live="polite"></p>
+
+    <div class="card">
+      <h3>Registrations on this device</h3>
+      <div id="registrations">No registrations yet.</div>
+      <button class="secondary" id="clear" type="button">
+        Clear local registrations
+      </button>
+    </div>
+    <p class="notice">
+      Demo only: registrations are stored in this browser, not sent
+      to an organiser or shared across devices.
+    </p>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> PAWS GAMING. Independent gaming community.
+  <p class="notice">Not affiliated with or endorsed by Garena.</p>
+</footer>
+
+<script>
+const samplePlayers = [
+  { name: "PAWS ACE", points: 950 },
+  { name: "NOVA X", points: 870 },
+  { name: "SHADOW FF", points: 790 },
+  { name: "PAWS PRO", points: 720 },
+  { name: "GHOST AIM", points: 650 }
+];
+
+const playerBody = document.getElementById("players");
+
+function showPlayers(query = "") {
+  const filtered = samplePlayers.filter(player =>
+    player.name.toLowerCase().includes(query.toLowerCase())
+  );
+
+  playerBody.replaceChildren();
+
+  filtered.forEach((player, index) => {
+    const tr = document.createElement("tr");
+    [String(index + 1), player.name, String(player.points)]
+      .forEach(value => {
+        const td = document.createElement("td");
+        td.textContent = value;
+        tr.appendChild(td);
+      });
+    playerBody.appendChild(tr);
+  });
+
+  if (filtered.length === 0) {
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    td.colSpan = 3;
+    td.textContent = "No matching players.";
+    tr.appendChild(td);
+    playerBody.appendChild(tr);
+  }
+}
+
+document.getElementById("search").addEventListener("input", event => {
+  showPlayers(event.target.value);
+});
+
+function getRegistrations() {
+  try {
+    return JSON.parse(localStorage.getItem("pawsSignups") || "[]");
+  } catch {
+    return [];
+  }
+}
+
+function renderRegistrations() {
+  const container = document.getElementById("registrations");
+  container.replaceChildren();
+  const registrations = getRegistrations();
+
+  if (registrations.length === 0) {
+    container.textContent = "No registrations yet.";
+    return;
+  }
+
+  registrations.forEach(item => {
+    const p = document.createElement("p");
+    p.textContent = item.name + " — " + item.mode;
+    container.appendChild(p);
+  });
+}
+
+function chooseEvent(eventName) {
+  document.getElementById("mode").value = eventName;
+  document.getElementById("join").scrollIntoView({ behavior: "smooth" });
+  document.getElementById("name").focus({ preventScroll: true });
+}
+
+document.getElementById("signup").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const mode = document.getElementById("mode").value;
+
+  if (!name) return;
+
+  const registrations = getRegistrations();
+  registrations.push({ name, mode });
+
+  try {
+    localStorage.setItem("pawsSignups", JSON.stringify(registrations));
+    document.getElementById("message").textContent =
+      "Interest saved on this device!";
+    document.getElementById("signup").reset();
+    renderRegistrations();
+  } catch {
+    document.getElementById("message").textContent =
+      "Could not save. Check your browser storage settings.";
+  }
+});
+
+document.getElementById("clear").addEventListener("click", () => {
+  try {
+    localStorage.removeItem("pawsSignups");
+    renderRegistrations();
+    document.getElementById("message").textContent =
+      "Local registrations cleared.";
+  } catch {
+    document.getElementById("message").textContent =
+      "Could not clear local storage.";
+  }
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+showPlayers();
+renderRegistrations();
+</script>
+</body>
+  </html>
+  
